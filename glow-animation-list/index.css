@@ -1,0 +1,54 @@
+:root {
+    ---swap-line-width: 20px;
+}
+
+body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#list ul {
+    /*#region remove default ul element style*/
+    margin: 0; /* Remove margin */
+    list-style-type: none; /* Remove list bullets */
+    padding: 0; /* Remove padding */
+    /*#endregion*/
+}
+#list ul li a {
+    position: relative;
+    font-size: 50pt;
+    color: transparent;   
+    padding-left: var(---swap-line-width);
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: var(--color);
+    filter: drop-shadow( 0 0 10px var(--color));
+}
+
+
+#list ul li a::before{
+    position: absolute;
+    color: var(--color);
+    width: 0;
+    left:0;
+    border-right: var(---swap-line-width) solid var(--color);
+    content: attr(text);
+    overflow: hidden;
+    transition: 200ms cubic-bezier(1, 0, 0, 1.01);
+}
+
+#list ul li a:hover::before {
+    left: var(---swap-line-width);
+    width: 100%;
+}
+
+/*#region underline for a element*/
+#list li a:link {text-decoration:none;}
+#list li a:visited {text-decoration:none;}
+#list li a:hover {text-decoration:none;}
+#list li a:active {text-decoration:none;}
+/*#endregion*/
